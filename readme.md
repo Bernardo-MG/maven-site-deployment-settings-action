@@ -27,4 +27,3 @@ The project has been released under the [MIT License][license].
 [issues]: https://github.com/Bernardo-MG/deployment-maven-settings-action/issues
 [license]: http://www.opensource.org/licenses/mit-license.php
 [scm]: http://github.com/Bernardo-MG/deployment-maven-settings-action
- 
