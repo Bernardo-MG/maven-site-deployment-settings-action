@@ -13,7 +13,7 @@ After receiving the parameters, a site-settings.xml will be created ready for de
 ```
 steps:
 - name: Set up Maven settings
-  uses: bernardo-mg/maven-site-deployment-settings-action@develop
+  uses: bernardo-mg/maven-site-deployment-settings-action@vx.x.x
   env:
     SITE_ID: site
     USER: ${{ secrets.DEPLOY_DOCS_DEVELOP_USER }}
