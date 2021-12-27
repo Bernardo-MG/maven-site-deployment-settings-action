@@ -6,6 +6,23 @@ Creates a Maven settings file for deploying Maven sites.
 
 - Create a Maven settings file for site deployment
 
+## Usage
+
+After receiving the parameters, a site-settings.xml will be created ready for deploying the Maven site.
+
+```
+steps:
+- name: Set up Maven settings
+  uses: bernardo-mg/maven-site-deployment-settings-action@vx.x.x
+  env:
+    SITE_ID: site
+    USER: ${{ secrets.DEPLOY_DOCS_DEVELOP_USER }}
+    PASSWORD: ${{ secrets.DEPLOY_DOCS_DEVELOP_PASSWORD }}
+    SITE_URL: ${{ secrets.DEPLOY_DOCS_DEVELOP_SITE }}
+- name: Deploy development docs
+  run: mvn verify site site:deploy -B -P deployment,deployment-development --settings site-settings.xml
+```
+
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
