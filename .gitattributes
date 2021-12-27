@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Known text files
+*.sh            text
+*.md            text
+*.txt           text
+*.xml           text
+*.yml           text
+Dockerfile      text

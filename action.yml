@@ -1,0 +1,5 @@
+name: 'Maven site settings'
+description: 'Build Maven settings for deploying Maven sites'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
