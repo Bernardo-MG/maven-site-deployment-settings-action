@@ -36,15 +36,14 @@ settings_path="site_settings.xml"
    echo "<profiles>";
    
       echo "<profile>";
-         echo "<id>deployment_site</id>"
-         echo <distributionManagement>
-            echo <site>
-               echo <id>${siteId}</id>
-               echo <name>Project Documentation Site</name>
-               echo <!-- The URL should be set externally -->
-               echo <url>${site.url}</url>
-            echo </site>
-         echo </distributionManagement>
+         echo "<id>deployment_site</id>";
+         echo "<distributionManagement>";
+            echo "<site>";
+               echo "<id>${siteId}</id>";
+               echo "<name>Project Documentation Site</name>";
+               echo "<url>${site.url}</url>";
+            echo "</site>";
+         echo "</distributionManagement>";
       echo "</profile>";
 
    echo "</profiles>";
