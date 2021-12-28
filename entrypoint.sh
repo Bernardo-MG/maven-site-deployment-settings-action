@@ -41,7 +41,7 @@ settings_path="site_settings.xml"
             echo "<site>";
                echo "<id>${siteId}</id>";
                echo "<name>Project Documentation Site</name>";
-               echo "<url>${site.url}</url>";
+               echo "<url>${siteUrl}</url>";
             echo "</site>";
          echo "</distributionManagement>";
       echo "</profile>";
