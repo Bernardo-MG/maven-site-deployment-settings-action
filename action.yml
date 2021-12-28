@@ -18,6 +18,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.siteId }}
+    - ${{ inputs.siteUrl }}
+    - ${{ inputs.user }}
+    - ${{ inputs.password }}
 branding:
   icon: 'book-open'
   color: 'green'
