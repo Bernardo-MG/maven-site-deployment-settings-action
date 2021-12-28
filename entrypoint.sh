@@ -3,6 +3,11 @@
 # Fails if any commands returns a non-zero value
 set -e
 
+siteId=${1}
+siteUrl=${2}
+user=${3}
+password=${4}
+
 settings_path="site_settings.xml"
 
 # The contents of the file are created
