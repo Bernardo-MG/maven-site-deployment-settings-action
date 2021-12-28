@@ -1,6 +1,8 @@
 # Maven Site Deployment Settings Action
 
-Creates a Maven settings file for deploying Maven sites.
+Creates a Maven settings file for deploying Maven sites. This will be available at ~/site_settings.xml path, and will include only the necessary info for deploying the site.
+
+REMEMBER: For security reasons the data stored in the settings file should not be shared. Never print it on the console or let it be accessed in any way.
 
 ## Features
 

@@ -1,5 +1,20 @@
 name: 'Maven site settings'
 description: 'Build Maven settings for deploying Maven sites'
+auth0r: 'Bernardo Martínez Garrido'
+inputs:
+  siteId:
+    description: 'Id of the server used for deploying the site. This will be a server define in the Maven configuration.'
+    required: false
+    default: 'site'
+  siteUrl:
+    description: 'URL for deploying the site.'
+    required: true
+  user:
+    description: 'Username for the site server.'
+    required: true
+  password:
+    description: 'Password for the site server.'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
