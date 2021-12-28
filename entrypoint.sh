@@ -37,11 +37,14 @@ settings_path="site_settings.xml"
    
       echo "<profile>";
          echo "<id>deployment_site</id>"
-         # This profile is used to define the deployment site URL
-         echo "<properties>"
-            # Deployment site
-            echo "<site.url>${siteUrl}</site.url>"
-         echo "</properties>"
+         echo <distributionManagement>
+            echo <site>
+               echo <id>${siteId}</id>
+               echo <name>Project Documentation Site</name>
+               echo <!-- The URL should be set externally -->
+               echo <url>${site.url}</url>
+            echo </site>
+         echo </distributionManagement>
       echo "</profile>";
 
    echo "</profiles>";
