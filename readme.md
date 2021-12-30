@@ -1,10 +1,17 @@
 # Maven Site Deployment Settings Action
 
-Creates a Maven settings file for deploying Maven sites.
+Creates a Maven settings file for deploying Maven sites. This will be available at ~/site_settings.xml path, and will include only the necessary info for deploying the site.
 
-## Features
+REMEMBER: For security reasons the data stored in the settings file should not be shared. Never print it on the console or let it be accessed in any way.
 
-- Create a Maven settings file for site deployment
+## Inputs
+
+| Input    | Description                                                                                            | Required                  |
+|----------|--------------------------------------------------------------------------------------------------------|---------------------------|
+| siteId   | Id of the server used for deploying the site. This will be a server define in the Maven configuration. | False, defaults to 'site' |
+| siteUrl  | URL for deploying the site.                                                                            | True                      |
+| user     | Username for the site server.                                                                          | True                      |
+| password | Password for the site server.                                                                          | True                      |
 
 ## Usage
 
@@ -15,12 +22,12 @@ steps:
 - name: Set up Maven settings
   uses: bernardo-mg/maven-site-deployment-settings-action@vx.x.x
   env:
-    SITE_ID: site
-    USER: ${{ secrets.DEPLOY_DOCS_DEVELOP_USER }}
-    PASSWORD: ${{ secrets.DEPLOY_DOCS_DEVELOP_PASSWORD }}
-    SITE_URL: ${{ secrets.DEPLOY_DOCS_DEVELOP_SITE }}
+    siteId: site
+    siteUrl: ${{ secrets.DEPLOY_DOCS_SITE }}
+    user: ${{ secrets.DEPLOY_DOCS__USER }}
+    password: ${{ secrets.DEPLOY_DOCS_PASSWORD }}
 - name: Deploy development docs
-  run: mvn verify site site:deploy -B -P deployment,deployment-development --settings site-settings.xml
+  run: mvn verify site site:deploy -B --settings site-settings.xml
 ```
 
 ## Collaborate
