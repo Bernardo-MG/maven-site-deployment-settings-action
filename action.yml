@@ -1,6 +1,6 @@
 name: 'Maven Site Settings'
 description: 'Build Maven settings for deploying Maven sites'
-auth0r: 'Bernardo Martínez Garrido'
+author: 'Bernardo Martínez Garrido'
 inputs:
   siteId:
     description: 'Id of the server used for deploying the site. This will be a server define in the Maven configuration.'
