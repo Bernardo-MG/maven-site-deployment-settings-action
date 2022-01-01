@@ -10,7 +10,7 @@ REMEMBER: For security reasons the data stored in the settings file should not b
 |----------|--------------------------------------------------------------------------------------------------------|---------------------------|
 | siteId   | Id of the server used for deploying the site. This will be a server define in the Maven configuration. | False, defaults to 'site' |
 | siteUrl  | URL for deploying the site.                                                                            | True                      |
-| user     | Username for the site server.                                                                          | True                      |
+| username | Username for the site server.                                                                          | True                      |
 | password | Password for the site server.                                                                          | True                      |
 
 ## Usage
@@ -24,7 +24,7 @@ steps:
   env:
     siteId: site
     siteUrl: ${{ secrets.DEPLOY_DOCS_SITE }}
-    user: ${{ secrets.DEPLOY_DOCS__USER }}
+    username: ${{ secrets.DEPLOY_DOCS_USER }}
     password: ${{ secrets.DEPLOY_DOCS_PASSWORD }}
 - name: Deploy development docs
   run: mvn verify site site:deploy -B --settings site-settings.xml

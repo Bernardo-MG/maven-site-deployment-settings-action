@@ -9,7 +9,7 @@ inputs:
   siteUrl:
     description: 'URL for deploying the site.'
     required: true
-  user:
+  username:
     description: 'Username for the site server.'
     required: true
   password:
@@ -21,7 +21,7 @@ runs:
   args:
     - ${{ inputs.siteId }}
     - ${{ inputs.siteUrl }}
-    - ${{ inputs.user }}
+    - ${{ inputs.username }}
     - ${{ inputs.password }}
 branding:
   icon: 'book-open'
