@@ -5,10 +5,10 @@
 #
 # -- PARAMETERS --
 #
-# - $1: string, site server id
-# - $2: string, site deployment URL
-# - $3: string, username for deployment
-# - $4: string, password for deployment
+# - $1: string, username for the deployment server
+# - $2: string, password for the deployment server
+# - $3: string, full URL where the site will be deployed
+# - $4: string, Maven id for the site deployment server
 #
 # -- OUTPUT --
 #
@@ -19,10 +19,10 @@
 set -e
 
 # Read input parameters
-siteId=${1}
-siteUrl=${2}
-user=${3}
-password=${4}
+user=${1}
+password=${2}
+siteUrl=${3}
+siteId=${4}
 
 # Define file path
 settings_path="site_settings.xml"

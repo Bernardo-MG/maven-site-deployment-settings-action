@@ -6,12 +6,12 @@ REMEMBER: For security reasons the data stored in the settings file should not b
 
 ## Inputs
 
-| Input    | Description                                                                                            | Required                  |
-|----------|--------------------------------------------------------------------------------------------------------|---------------------------|
-| siteId   | Id of the server used for deploying the site. This will be a server define in the Maven configuration. | False, defaults to 'site' |
-| siteUrl  | URL for deploying the site.                                                                            | True                      |
-| username | Username for the site server.                                                                          | True                      |
-| password | Password for the site server.                                                                          | True                      |
+| Input    | Description                               | Required                  |
+|----------|-------------------------------------------|---------------------------|
+| username | Username for the deployment server.       | True                      |
+| password | Password for the deployment server.       | True                      |
+| siteUrl  | Full URL where the site will be deployed. | True                      |
+| siteId   | Maven id for the site deployment server.  | False, defaults to 'site' |
 
 ## Usage
 
@@ -35,14 +35,47 @@ jobs:
     - name: Set up Maven settings for site deployment
       uses: bernardo-mg/maven-site-deployment-settings-action@v1
       with:
-        siteId: site
-        siteUrl: ${{ secrets.url }}
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
+        siteUrl: ${{ secrets.url }}
     - name: Generate docs
       run: mvn verify site -B -P deployment-site
     - name: Deploy docs
       run: mvn site:deploy -B -P deployment-site -DskipTests --settings site_settings.xml
+```
+
+### Maven Site Configuration
+
+The action won't works unless the Maven project includes a deployment site:
+
+```
+<distributionManagement>
+   <site>
+      <id>site</id>
+      <name>Project Documentation Site</name>
+      <url>${site.url}</url>
+   </site>
+</distributionManagement>
+```
+
+This works because the default id is site, and the action will store the deployment URL into the site.url maven property.
+
+The site id can be can be changed with the siteId parameter:
+
+```
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Maven settings for site deployment
+      uses: bernardo-mg/maven-site-deployment-settings-action@v1
+      with:
+        siteId: siteName
+        siteUrl: ${{ secrets.url }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
 ```
 
 ## Collaborate
