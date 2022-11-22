@@ -21,8 +21,8 @@ runs:
   args:
     - ${{ inputs.username }}
     - ${{ inputs.password }}
-    - ${{ inputs.siteId }}
     - ${{ inputs.siteUrl }}
+    - ${{ inputs.siteId }}
 branding:
   icon: 'book-open'
   color: 'green'
