@@ -1,13 +1,30 @@
 #!/bin/sh
 
+#
+# Creates a Maven settings file for deploying the Maven site during CI.
+#
+# -- PARAMETERS --
+#
+# - $1: string, site server id
+# - $2: string, site deployment URL
+# - $3: string, username for deployment
+# - $4: string, password for deployment
+#
+# -- OUTPUT --
+#
+# - Maven settings file at site_settings.xml
+#
+
 # Fails if any commands returns a non-zero value
 set -e
 
+# Read input parameters
 siteId=${1}
 siteUrl=${2}
 user=${3}
 password=${4}
 
+# Define file path
 settings_path="site_settings.xml"
 
 # The contents of the file are created
