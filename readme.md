@@ -15,19 +15,34 @@ REMEMBER: For security reasons the data stored in the settings file should not b
 
 ## Usage
 
-After receiving the parameters, a site-settings.xml will be created ready for deploying the Maven site.
+This builds the site settings from the Github secrets and then deploy the Maven site.
 
 ```
-steps:
-- name: Set up Maven settings
-  uses: bernardo-mg/maven-site-deployment-settings-action@v1
-  env:
-    siteId: site
-    siteUrl: ${{ secrets.DEPLOY_DOCS_SITE }}
-    username: ${{ secrets.DEPLOY_DOCS_USER }}
-    password: ${{ secrets.DEPLOY_DOCS_PASSWORD }}
-- name: Deploy development docs
-  run: mvn verify site site:deploy -B --settings site-settings.xml
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check-out
+      uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11
+        distribution: 'adopt'
+        cache: 'maven'
+    - name: Set up Maven settings for site deployment
+      uses: bernardo-mg/maven-site-deployment-settings-action@v1
+      with:
+        siteId: site
+        siteUrl: ${{ secrets.url }}
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+    - name: Generate docs
+      run: mvn verify site -B -P deployment-site
+    - name: Deploy docs
+      run: mvn site:deploy -B -P deployment-site -DskipTests --settings site_settings.xml
 ```
 
 ## Collaborate
