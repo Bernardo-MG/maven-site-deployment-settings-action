@@ -25,9 +25,9 @@ jobs:
 
     steps:
     - name: Check-out
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Set up JDK
-      uses: actions/setup-java@v2
+      uses: actions/setup-java@v3
       with:
         java-version: 11
         distribution: 'adopt'
@@ -96,6 +96,6 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 ## License
 The project has been released under the [MIT License][license].
 
-[issues]: https://github.com/Bernardo-MG/deployment-maven-settings-action/issues
-[license]: http://www.opensource.org/licenses/mit-license.php
-[scm]: http://github.com/Bernardo-MG/deployment-maven-settings-action
+[issues]: https://github.com/Bernardo-MG/maven-site-deployment-settings-action/issues
+[license]: https://www.opensource.org/licenses/mit-license.php
+[scm]: https://github.com/Bernardo-MG/maven-site-deployment-settings-action
