@@ -15,6 +15,10 @@ inputs:
     description: 'Maven id for the site deployment server.'
     required: false
     default: 'site'
+  fileName:
+    description: 'Name for the settings file.'
+    required: false
+    default: 'site_settings.xml'
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -23,6 +27,7 @@ runs:
     - ${{ inputs.password }}
     - ${{ inputs.siteUrl }}
     - ${{ inputs.siteId }}
+    - ${{ inputs.fileName }}
 branding:
   icon: 'book-open'
   color: 'green'

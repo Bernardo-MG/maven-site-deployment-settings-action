@@ -21,11 +21,12 @@ set -e
 # Read input parameters
 user=${1}
 password=${2}
-siteUrl=${3}
-siteId=${4}
+site_url=${3}
+site_id=${4}
+settings_file_name=${5}
 
 # Define file path
-settings_path="site_settings.xml"
+settings_path=${settings_file_name}
 
 # The contents of the file are created
 {
@@ -39,7 +40,7 @@ settings_path="site_settings.xml"
 
    # Release site server
       echo "<server>";
-         echo "<id>${siteId}</id>";
+         echo "<id>${site_id}</id>";
          echo "<username>${user}</username>";
          echo "<password>${password}</password>";
          echo "<configuration>";
@@ -62,7 +63,7 @@ settings_path="site_settings.xml"
          # This profile is used to define the deployment site URL
          echo "<properties>"
             # Deployment site
-            echo "<site.url>${siteUrl}</site.url>"
+            echo "<site.url>${site_url}</site.url>"
          echo "</properties>"
       echo "</profile>";
 
