@@ -35,9 +35,9 @@ jobs:
     - name: Set up Maven settings for site deployment
       uses: bernardo-mg/maven-site-deployment-settings-action@v1
       with:
+        siteUrl: ${{ secrets.url }}
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
-        siteUrl: ${{ secrets.url }}
     - name: Generate docs
       run: mvn verify site -B -P deployment-site
     - name: Deploy docs
