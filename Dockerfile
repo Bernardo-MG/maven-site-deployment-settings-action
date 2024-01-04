@@ -1,10 +1,10 @@
 # -----------------------------------------------------------------------------
 # ACTION IMAGE
 #
-# This simple image just copies and runs the action script.
+# A simple image which just copies and runs the action script.
 # -----------------------------------------------------------------------------
 # Build a lightweight environment
-FROM alpine:3.16
+FROM alpine:3.19
 
 # Copy script
 COPY entrypoint.sh /entrypoint.sh
