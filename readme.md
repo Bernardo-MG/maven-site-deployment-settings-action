@@ -29,19 +29,19 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        java-version: 11
-        distribution: 'adopt'
+        java-version: 17
+        distribution: 'temurin'
         cache: 'maven'
     - name: Set up Maven settings for site deployment
       uses: bernardo-mg/maven-site-deployment-settings-action@v1
       with:
-        siteUrl: ${{ secrets.url }}
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
+        siteUrl: ${{ secrets.url }}
     - name: Generate docs
-      run: mvn verify site -B -P deployment-site
+      run: mvn verify site -B -P ${{ inputs.profile }}
     - name: Deploy docs
-      run: mvn site:deploy -B -P deployment-site -DskipTests --settings site_settings.xml
+      run: mvn site:deploy -B -P ${{ inputs.profile }} -DskipTests --settings site_settings.xml
 ```
 
 ### Maven Site Configuration
@@ -73,9 +73,9 @@ jobs:
       uses: bernardo-mg/maven-site-deployment-settings-action@v1
       with:
         siteId: siteName
-        siteUrl: ${{ secrets.url }}
         username: ${{ secrets.username }}
         password: ${{ secrets.password }}
+        siteUrl: ${{ secrets.url }}
 ```
 
 ## Collaborate
