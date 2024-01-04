@@ -48,7 +48,7 @@ jobs:
 
 The action won't works unless the Maven project includes a deployment site:
 
-```
+```yaml
 <distributionManagement>
    <site>
       <id>site</id>
@@ -62,7 +62,7 @@ This works because the default id is site, and the action will store the deploym
 
 The site id can be can be changed with the siteId parameter:
 
-```
+```yaml
 jobs:
   deploy:
     name: Deployment
