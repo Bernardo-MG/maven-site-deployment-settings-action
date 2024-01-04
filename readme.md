@@ -25,9 +25,9 @@ jobs:
 
     steps:
     - name: Check-out
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Set up JDK
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: 11
         distribution: 'adopt'
