@@ -17,7 +17,7 @@ REMEMBER: For security reasons the data stored in the settings file should not b
 
 This builds the site settings from the Github secrets and then deploy the Maven site.
 
-```
+```yaml
 jobs:
   deploy:
     name: Deployment
