@@ -39,9 +39,9 @@ jobs:
         password: ${{ secrets.password }}
         siteUrl: ${{ secrets.url }}
     - name: Generate docs
-      run: mvn verify site -B -P ${{ inputs.profile }}
+      run: mvn verify site -B
     - name: Deploy docs
-      run: mvn site:deploy -B -P ${{ inputs.profile }} -DskipTests --settings site_settings.xml
+      run: mvn site:deploy -B -DskipTests --settings site_settings.xml
 ```
 
 ### Maven Site Configuration
